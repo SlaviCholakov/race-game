@@ -23,8 +23,8 @@ function loadImages() {
 
 	let imageList = [
 		{letName: carPic, theFile: "player1car.png"},
-		{letName: roadPic, theFile: "track_road.png"},
-		{letName: wallPic, theFile: "track_wall.png"}
+		{letName: roadPic, theFile: "road.png"},
+		{letName: wallPic, theFile: "wall.png"}
 		];
 
 	picsToLoad = imageList.length;
