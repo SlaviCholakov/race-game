@@ -1,11 +1,8 @@
-let carPic = document.createElement("img");
-let roadPic = document.createElement("img");
-let wallPic = document.createElement("img");
-let goalPic = document.createElement("img");
-let treePic = document.createElement("img");
-let flagPic = document.createElement("img");
+var carPic = document.createElement("img");
+var otherCarPic = document.createElement("img");
+var trackPics = [];
 
-let picsToLoad = 0; // set automatically based on imageList in loadImages()
+var picsToLoad = 0; // set automatically based on imageList in loadImages()
 
 function countLoadedImagesAndLaunchIfReady() {
 	picsToLoad--;
@@ -15,24 +12,35 @@ function countLoadedImagesAndLaunchIfReady() {
 	}
 }
 
-function beginLoadingImage(imgLet, fileName) {
-	imgLet.onload = countLoadedImagesAndLaunchIfReady;
-	imgLet.src = "images/"+fileName;
+function beginLoadingImage(imgVar, fileName) {
+	imgVar.onload = countLoadedImagesAndLaunchIfReady;
+	imgVar.src = "images/"+fileName;
+}
+
+function loadImageForTrackCode(trackCode, fileName) {
+	trackPics[trackCode] = document.createElement("img");
+	beginLoadingImage(trackPics[trackCode], fileName);
 }
 
 function loadImages() {
-	let imageList = [
-		{letName: carPic, theFile: "player1car.png"},
-		{letName: roadPic, theFile: "track_road.png"},
-		{letName: wallPic, theFile: "track_wall.png"},
-		{letName: goalPic, theFile: "track_goal.png"},
-		{letName: treePic, theFile: "track_tree.png"},
-		{letName: flagPic, theFile: "track_flag.png"}
+	var imageList = [
+		{varName: carPic, theFile: "player1car.png"},
+		{varName: otherCarPic, theFile: "player2car.png"},
+
+		{trackType: TRACK_ROAD, theFile: "track_road.png"},
+		{trackType: TRACK_WALL, theFile: "track_wall.png"},
+		{trackType: TRACK_GOAL, theFile: "track_goal.png"},
+		{trackType: TRACK_TREE, theFile: "track_tree.png"},
+		{trackType: TRACK_FLAG, theFile: "track_flag.png"}
 		];
 
 	picsToLoad = imageList.length;
 
-	for(let i=0;i<imageList.length;i++) {
-		beginLoadingImage(imageList[i].letName, imageList[i].theFile);
+	for(var i=0;i<imageList.length;i++) {
+		if(imageList[i].varName != undefined) {
+			beginLoadingImage(imageList[i].varName, imageList[i].theFile);
+		} else {
+			loadImageForTrackCode(imageList[i].trackType, imageList[i].theFile);
+		}
 	}
 }
