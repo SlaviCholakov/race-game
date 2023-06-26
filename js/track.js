@@ -3,7 +3,7 @@ const TRACK_H = 40;
 const TRACK_GAP = 2;
 const TRACK_COLS = 20;
 const TRACK_ROWS = 15;
-var trackGrid = [4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4,
+let trackGrid = [4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4,
 				 4, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
 				 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1,
@@ -29,7 +29,7 @@ const TRACK_FLAG = 5;
 function isObstacleAtColRow(col, row) {
 	if(col >= 0 && col < TRACK_COLS &&
 		row >= 0 && row < TRACK_ROWS) {
-		 var trackIndexUnderCoord = rowColToArrayIndex(col, row);
+		 let trackIndexUnderCoord = rowColToArrayIndex(col, row);
 		 return (trackGrid[trackIndexUnderCoord] != TRACK_ROAD);
 	} else {
 		return false;
@@ -37,9 +37,9 @@ function isObstacleAtColRow(col, row) {
 }
 
 function carTrackHandling() {
-	var carTrackCol = Math.floor(carX / TRACK_W);
-	var carTrackRow = Math.floor(carY / TRACK_H);
-	var trackIndexUnderCar = rowColToArrayIndex(carTrackCol, carTrackRow);
+	let carTrackCol = Math.floor(carX / TRACK_W);
+	let carTrackRow = Math.floor(carY / TRACK_H);
+	let trackIndexUnderCar = rowColToArrayIndex(carTrackCol, carTrackRow);
 
 	if(carTrackCol >= 0 && carTrackCol < TRACK_COLS &&
 		carTrackRow >= 0 && carTrackRow < TRACK_ROWS) {
@@ -61,12 +61,12 @@ function rowColToArrayIndex(col, row) {
 
 function drawTracks() {
 
-	for(var eachRow=0;eachRow<TRACK_ROWS;eachRow++) {
-		for(var eachCol=0;eachCol<TRACK_COLS;eachCol++) {
+	for(let eachRow=0;eachRow<TRACK_ROWS;eachRow++) {
+		for(let eachCol=0;eachCol<TRACK_COLS;eachCol++) {
 
-			var arrayIndex = rowColToArrayIndex(eachCol, eachRow); 
-			var tileKindHere = trackGrid[arrayIndex];
-			var useImg;
+			let arrayIndex = rowColToArrayIndex(eachCol, eachRow); 
+			let tileKindHere = trackGrid[arrayIndex];
+			let useImg;
 			switch(tileKindHere) {
 				case TRACK_ROAD:
 					useImg = roadPic;

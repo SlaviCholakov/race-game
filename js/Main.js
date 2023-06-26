@@ -1,4 +1,4 @@
-var canvas, canvasContext;
+let canvas, canvasContext;
 
 window.onload = function() {
 	canvas = document.getElementById('gameCanvas');
@@ -11,7 +11,7 @@ window.onload = function() {
 }
 
 function imageLoadingDoneSoStartGame() {
-	var framesPerSecond = 30;
+	let framesPerSecond = 30;
 	setInterval(updateAll, 1000/framesPerSecond);
 
 	setupInput();

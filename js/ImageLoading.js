@@ -1,11 +1,11 @@
-var carPic = document.createElement("img");
-var roadPic = document.createElement("img");
-var wallPic = document.createElement("img");
-var goalPic = document.createElement("img");
-var treePic = document.createElement("img");
-var flagPic = document.createElement("img");
+let carPic = document.createElement("img");
+let roadPic = document.createElement("img");
+let wallPic = document.createElement("img");
+let goalPic = document.createElement("img");
+let treePic = document.createElement("img");
+let flagPic = document.createElement("img");
 
-var picsToLoad = 0; // set automatically based on imageList in loadImages()
+let picsToLoad = 0; // set automatically based on imageList in loadImages()
 
 function countLoadedImagesAndLaunchIfReady() {
 	picsToLoad--;
@@ -15,24 +15,24 @@ function countLoadedImagesAndLaunchIfReady() {
 	}
 }
 
-function beginLoadingImage(imgVar, fileName) {
-	imgVar.onload = countLoadedImagesAndLaunchIfReady;
-	imgVar.src = "images/"+fileName;
+function beginLoadingImage(imgLet, fileName) {
+	imgLet.onload = countLoadedImagesAndLaunchIfReady;
+	imgLet.src = "images/"+fileName;
 }
 
 function loadImages() {
-	var imageList = [
-		{varName: carPic, theFile: "player1car.png"},
-		{varName: roadPic, theFile: "track_road.png"},
-		{varName: wallPic, theFile: "track_wall.png"},
-		{varName: goalPic, theFile: "track_goal.png"},
-		{varName: treePic, theFile: "track_tree.png"},
-		{varName: flagPic, theFile: "track_flag.png"}
+	let imageList = [
+		{letName: carPic, theFile: "player1car.png"},
+		{letName: roadPic, theFile: "track_road.png"},
+		{letName: wallPic, theFile: "track_wall.png"},
+		{letName: goalPic, theFile: "track_goal.png"},
+		{letName: treePic, theFile: "track_tree.png"},
+		{letName: flagPic, theFile: "track_flag.png"}
 		];
 
 	picsToLoad = imageList.length;
 
-	for(var i=0;i<imageList.length;i++) {
-		beginLoadingImage(imageList[i].varName, imageList[i].theFile);
+	for(let i=0;i<imageList.length;i++) {
+		beginLoadingImage(imageList[i].letName, imageList[i].theFile);
 	}
 }

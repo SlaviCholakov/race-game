@@ -1,7 +1,7 @@
-var carX = 75;
-var carY = 75;
-var carAng = 0;
-var carSpeed = 0;
+let carX = 75;
+let carY = 75;
+let carAng = 0;
+let carSpeed = 0;
 
 const GROUNDSPEED_DECAY_MULT = 0.94;
 const DRIVE_POWER = 0.5;
@@ -10,9 +10,9 @@ const TURN_RATE = 0.06;
 const MIN_SPEED_TO_TURN = 0.5;
 
 function carReset() {
-	for(var eachRow=0;eachRow<TRACK_ROWS;eachRow++) {
-		for(var eachCol=0;eachCol<TRACK_COLS;eachCol++) {
-			var arrayIndex = rowColToArrayIndex(eachCol, eachRow); 
+	for(let eachRow=0;eachRow<TRACK_ROWS;eachRow++) {
+		for(let eachCol=0;eachCol<TRACK_COLS;eachCol++) {
+			let arrayIndex = rowColToArrayIndex(eachCol, eachRow); 
 			if(trackGrid[arrayIndex] == TRACK_PLAYERSTART) {
 				trackGrid[arrayIndex] = TRACK_ROAD;
 				carAng = -Math.PI/2;
