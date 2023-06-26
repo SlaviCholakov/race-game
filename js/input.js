@@ -3,13 +3,13 @@ const KEY_UP_ARROW = 38;
 const KEY_RIGHT_ARROW = 39;
 const KEY_DOWN_ARROW = 40;
 
-var keyHeld_Gas = false;
-var keyHeld_Reverse = false;
-var keyHeld_TurnLeft = false;
-var keyHeld_TurnRight = false;
+let keyHeld_Gas = false;
+let keyHeld_Reverse = false;
+let keyHeld_TurnLeft = false;
+let keyHeld_TurnRight = false;
 
-var mouseX = 0;
-var mouseY = 0;
+let mouseX = 0;
+let mouseY = 0;
 
 function setupInput() {
 	canvas.addEventListener('mousemove', updateMousePos);
@@ -19,8 +19,8 @@ function setupInput() {
 }
 
 function updateMousePos(evt) {
-	var rect = canvas.getBoundingClientRect();
-	var root = document.documentElement;
+	let rect = canvas.getBoundingClientRect();
+	let root = document.documentElement;
 
 	mouseX = evt.clientX - rect.left - root.scrollLeft;
 	mouseY = evt.clientY - rect.top - root.scrollTop;
